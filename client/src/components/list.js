@@ -4,6 +4,7 @@ import _ from 'underscore'
 import { TableBody, Table, TableRow, TableRowColumn, TableHeaderColumn, TableHeader  }  from 'material-ui'
 import UserProfile from './userprofile.js'
 import ButtonBar from './button_bar'
+import Header from './firstrow'
 
 export default class List extends Component {
 	constructor(props){
@@ -27,20 +28,15 @@ export default class List extends Component {
 	}
 
 	search(term){
-		if(!term){
-		 this.getAllUsers()
-		}else if (typeof term === 'string'){
-			term = term.toLowerCase()
-		}
-		let arr = [];
-		for(let i = 0; i < this.state.data.length; i++){
-			let currentId = "" + this.state.data[i]['id'];
-			let currentName = this.state.data[i]['fname'].toLowerCase()
-			let currentScreenName = this.state.data[i]['username'].toLowerCase()
-			if(currentId.indexOf(term) !== -1 || currentName.indexOf(term) !== -1 || currentScreenName.indexOf(term) !== -1){
-				arr.push(this.state.data[i])
-			}
-		}
+		term = (!term) ? this.getAllUsers() : term.toLowerCase()
+
+		let arr = this.state.data.filter(function(value){
+			let currentId = "" + value['id'];
+			let currentName = value['fname'].toLowerCase()
+			let currentScreenName = value['username'].toLowerCase()
+			return (currentId.indexOf(term) !== -1) || (currentName.indexOf(term) !== -1) || (currentScreenName.indexOf(term) !== -1)
+		})
+
 		this.setState({data: arr});
 	}
 
@@ -95,7 +91,6 @@ export default class List extends Component {
  		})
 		return (
 			<div>
-			<br/>
 			<ButtonBar
 				mostLikes={() => this.setState({data: this.sortResults(this.state.data, 'likes', false)})}
 				leastLikes={() => this.setState({data: this.sortResults(this.state.data, 'likes', true)})}
@@ -105,7 +100,7 @@ export default class List extends Component {
 				open ={this.state.open}
 				handleOpen={this.handleOpen}
 	 			handleClose={this.handleClose}
-	 			findID={searchID}
+	 			finder={searchID}
 			/>
 			<br/>
 			<br/>
@@ -119,13 +114,7 @@ export default class List extends Component {
 	    		adjustForCheckbox={false}
 	    		displaySelectAll={false}
 	    		enableSelectAll={false} >
-	      <TableRow>
-	        <TableHeaderColumn>ID</TableHeaderColumn>
-	        <TableHeaderColumn>Name</TableHeaderColumn>
-	        <TableHeaderColumn>Username</TableHeaderColumn>
-	        <TableHeaderColumn>Age</TableHeaderColumn>
-	        <TableHeaderColumn>Likes</TableHeaderColumn>
-     		</TableRow>
+	      <Header />
   			</TableHeader>
 				<TableBody
 					showRowHover={true}

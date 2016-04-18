@@ -17,7 +17,7 @@ export default (props) => (
     />
     <TextField
       floatingLabelText="Search"
-      onChange={event => props.findID(event.target.value)}
+      onChange={event => props.finder(event.target.value)}
     /><br/>
 
   </div>
