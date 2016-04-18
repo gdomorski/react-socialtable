@@ -2,8 +2,14 @@
   "name": "react-socialtable",
   "version": "1.0.0",
   "description": "React App to display twitter data",
+  "engines": {
+    "node": "5.9.1"
+  },
   "main": "index.js",
-  "repository": "git@github.com:gdomorski/react-socialtable.git",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/gdomorski/react-socialtable.git"
+  },
   "scripts": {
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
@@ -46,5 +52,13 @@
     "redux": "^3.0.4",
     "sequelize": "^3.21.0",
     "underscore": "^1.8.3"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/gdomorski/react-socialtable/issues"
+  },
+  "homepage": "https://github.com/gdomorski/react-socialtable#readme",
+  "directories": {
+    "test": "test"
+  },
+  "keywords": []
 }
