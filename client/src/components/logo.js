@@ -8,8 +8,6 @@ export default () => {
 	}
 	const style = {
 		width: '100px',
-		'verticalAlign': 'middle',
-		'display': 'table-cell'
 	}
 	return(
 		<div style={style2}>
