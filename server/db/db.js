@@ -18,6 +18,7 @@ if (process.env.PORT) {
 }
 
 var User = db.define('user', {
+  id: AUTO_INCREMENT,
   fname: Sequelize.STRING,
 	username: {type: Sequelize.STRING, unique: true},
 	age: Sequelize.INTEGER,

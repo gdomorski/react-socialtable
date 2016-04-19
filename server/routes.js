@@ -11,7 +11,6 @@ module.exports = function (app, express) {
  app.post('/api/allusers', function (req, res) {
   console.log(req.body)
     User.create({
-      id: "" + ++count,
       fname: req.body.fname,
       username: req.body.username,
       age: parseInt(req.body.age),
