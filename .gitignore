@@ -1,6 +1,7 @@
-/node_modules
-bundle.js
+node_modules/
+bower_components/
+*.log
 
+build/
+dist/
 .DS_Store
-*.DS_Store
-*/.DS_Store
