@@ -33,7 +33,8 @@ var express = require('express');
 
 
 //POSTGRESQL
-var conString = process.env.DATABASE_URL || 'postgres://localhost:5432/';
+var conString = process.env.DATABASE_URL || {host: "localhost", port: 5432, ssl: true}
+// 'postgres://localhost:5432/'
 console.log(conString, 'CONSTRINGGGGGGG')
 var client = new pg.Client(conString);
 client.connect();
