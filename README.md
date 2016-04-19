@@ -29,7 +29,7 @@ Greg Domorski
 
 2) Open up PostgreSQL and enter command 'CREATE DATABASE twitter_users;'
 
-3) In the root directory, run nodemon server/server.js. Also, open a second terminal window in the root and run webpack --watch. This will recompile the code if you make any changes.
+3) CD in the server folder and run nodemon server.js. Also, open a second terminal window in the root and run webpack --watch. This will recompile the code if you make any changes.
 
 4) Open up to localhost 8080.
 
