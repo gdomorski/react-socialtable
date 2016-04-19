@@ -5,7 +5,7 @@ if (process.env.PORT) {
     host: 'ec2-23-21-215-184.compute-1.amazonaws.com',
     dialect: 'postgres'
   });
-}else{
+} else {
   db = new Sequelize('twitter_users', '', '', {
     host: 'localhost',
     dialect: 'postgres',
