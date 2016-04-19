@@ -1,15 +1,14 @@
 var express = require('express');
-    pg = require('pg').native;
-    var app = express(),
+    pg = require('pg'),
+    app = express(),
     methodOverride = require('method-override'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
     fs = require('fs'),
     csv = require('fast-csv'),
-    User = require('./db/db').User;
-
-    var port = process.env.PORT || 8080
-    var count = 0,
+    User = require('./db/db').User,
+    port = process.env.PORT || 8080,
+    count = 0,
     server = app.listen(port, function() {
         console.log("Server listening on: http://localhost:%s", port);
     });
