@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "description": "React App to display twitter data",
   "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/gdomorski/react-socialtable.git"
-  },
   "scripts": {
     "start": "node ./server/server.js",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
