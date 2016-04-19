@@ -6,9 +6,10 @@ var express = require('express');
     bodyParser = require('body-parser'),
     fs = require('fs'),
     csv = require('fast-csv'),
-    User = require('./db/db').User,
-    port = process.env.PORT || 8080,
-    count = 0,
+    User = require('./db/db').User;
+
+    var port = process.env.PORT || 8080
+    var count = 0,
     server = app.listen(port, function() {
         console.log("Server listening on: http://localhost:%s", port);
     });
@@ -40,9 +41,7 @@ client.connect();
 app.use(express.static(__dirname + '/../client'));
 app.use(morgan('dev'));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride());
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
 
 require('./routes.js')(app, express);

@@ -6,7 +6,7 @@ if (process.env.PORT) {
     dialect: 'postgres'
   });
 } else {
-  db = new Sequelize('twitter_users', '', '', {
+    db = new Sequelize('twitter_users', '', '', {
     host: 'localhost',
     dialect: 'postgres',
     pool: {
