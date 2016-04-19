@@ -13,23 +13,23 @@ var express = require('express');
         console.log("Server listening on: http://localhost:%s", port);
     });
 
-fs.createReadStream("user_data.csv")
-    .pipe(csv())
-    .on("data", function(data){
-      var currentId = parseInt(data[0]);
-      count = (count > currentId) ? count : currentId;
-      console.log(count)
-      User.create({
-        id: data[0],
-        fname: data[1] + " " + data[2],
-        username: data[3],
-        age: data[7],
-        likes: data[9],
-      })
-    })
-    .on("end", function(data){
-        console.log("done");
-    });
+// fs.createReadStream("user_data.csv")
+//     .pipe(csv())
+//     .on("data", function(data){
+//       var currentId = parseInt(data[0]);
+//       count = (count > currentId) ? count : currentId;
+//       console.log(count)
+//       User.create({
+//         id: data[0],
+//         fname: data[1] + " " + data[2],
+//         username: data[3],
+//         age: data[7],
+//         likes: data[9],
+//       })
+//     })
+//     .on("end", function(data){
+//         console.log("done");
+//     });
 
 
 //POSTGRESQL
