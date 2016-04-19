@@ -1,6 +1,6 @@
 var express = require('express');
-    pg = require('pg'),
-    app = express(),
+    pg = require('pg').native;
+    var app = express(),
     methodOverride = require('method-override'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
